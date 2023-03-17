@@ -1,0 +1,89 @@
+<!-- <h1 class="">Form</h1>
+<div fxLayout="row" fxLayoutAlign="center center" class="example-container">
+   
+    <form class="example-form">
+        <p> Enter Email</p>
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                placeholder="Ex. pat@example.com">
+
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <div class="pass">
+            <p> Enter Password</p>
+            <mat-form-field class="example-full-width">
+                <mat-label>password</mat-label>
+                <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                    placeholder="enter password">
+
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter password
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                    password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+    </form>
+
+</div>
+
+
+ -->
+ <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+              <!-- <img src="https://example.com/profile-image.jpg" class="profile-image">
+              <h5 class="card-title">{{ name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ email }}</h6>
+              <p class="card-text">{{ phone }}</p>
+              <p class="card-text">{{ address }}</p> -->
+              <form>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email">
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone number</label>
+                  <input type="tel" class="form-control" id="phone" [(ngModel)]="phone" name="phone">
+                </div>
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <textarea class="form-control" id="address" rows="3" [(ngModel)]="address" name="address"></textarea>
+                </div>
+              </form>
+              <hr>
+              <h5>Data entered:</h5>
+              <ul>
+                <li><strong>Name:</strong> {{ name }}</li>
+                <li><strong>Email:</strong> {{ email }}</li>
+                <li><strong>Phone:</strong> {{ phone }}</li>
+                <li><strong>Address:</strong> {{ address }}</li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+    </div>
+  </div>
+  <ng-template #cardAnimation>
+    <div [@fadeInOut]>
+      <ng-content></ng-content>
+    </div>
+  </ng-template>
+  
+
+

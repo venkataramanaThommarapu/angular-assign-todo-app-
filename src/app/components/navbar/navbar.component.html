@@ -1,0 +1,22 @@
+<mat-toolbar class="bg-secondary">
+    <button mat-icon-button class="example-icon " aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>My Todo App</span>
+    <span class="example-spacer"></span>
+    <button mat-button class="example-icon favorite-icon" routerLink="/" routerLinkActive="mat-mdc-raised-button"
+        [routerLinkActiveOptions]="{exact:true}">
+        Home
+    </button>
+    <button mat-button class="example-icon" routerLink="/todo" routerLinkActive="mat-mdc-raised-button" >
+        Todo
+    </button>
+    <button mat-button class="example-icon" routerLink="/form" routerLinkActive="mat-mdc-raised-button" >
+        Form
+    </button>
+    <button mat-icon-button>
+        <!-- <mat-icon>shopping_cart</mat-icon> -->
+        <mat-badge [matBadge]="cs.todosCount"></mat-badge>
+    </button>
+
+</mat-toolbar>
