@@ -6,6 +6,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModeldeleteComponent } from '../modeldelete/modeldelete.component';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/providers/common.service';
+import * as XLSX from 'xlsx';
+// import {Component,ViewChild, ElementRef} from '@angular/core';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 
 
@@ -23,6 +27,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  // @ViewChild('TABLE') table: ElementRef;
 
   constructor(private cs: CommonService, private dialog: MatDialog, private router: Router) { }
 
@@ -77,6 +82,52 @@ export class HomeComponent implements OnInit, AfterViewInit {
     const params = JSON.stringify(row);
     this.router.navigate(['/todo'], { queryParams: { todo : params } })
   }
+
+
+  // ExportTOExcel()
+  // {
+  //   console.log("export");
+  //   this.table.nativeElement.style.background = "red";
+  //   const ws: XLSX.WorkSheet=XLSX.utils.table_to_sheet(this.table.nativeElement);
+  //   const wb: XLSX.WorkBook = XLSX.utils.book_new();
+  //   XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+  //   /* save to file */
+  //   XLSX.writeFile(wb,'SheetJS.xlsx');
+  //   console.log("exported");
+
+  // }
+  ExportTOExcel() {
+    const workSheet = XLSX.utils.json_to_sheet(this.dataSource.data);
+    const workBook: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workBook, workSheet, 'SheetName');
+    XLSX.writeFile(workBook, 'filename.xlsx');
+}
+
+
+
+downloadAsPDF() {
+  const element: HTMLElement = document.getElementById('mycard') as HTMLElement;
+  const options = {
+    background: 'white',
+    scale: 3
+  };
+
+  html2canvas(element, options).then((canvas) => {
+    var img = canvas.toDataURL("image/PNG");
+    var doc = new jsPDF('l', 'mm', 'a4', true);
+    const bufferX = 5;
+    const bufferY = 5;
+    const imgProps = (<any>doc).getImageProperties(img);
+    const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+    doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+    return doc;
+  }).then((doc) => {
+    doc.save('postres.pdf');
+  });
+}
+
 }
 
 

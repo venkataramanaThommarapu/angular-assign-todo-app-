@@ -1,67 +1,128 @@
-.example-container mat-form-field + mat-form-field {
-    margin-left: 8px;
-  }
+.card {
+  margin-top: 50px;
+  border-radius: 10px;
+}
 
-  .pass{
-    margin-top: 10px;
-  }
-
-  .example-container{
-margin-top: 100px;
-  }
-
-  // .card {
-  //   margin-top: 50px;
-  //   border-radius: 10px;
-  // }
-  .card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: box-shadow 0.3s ease-in-out;
-    border-radius: 8px;
-  }
+.formdiv{
+  background-color: #a69292;
+  // margin-top: 50px;
+  padding: 20px;
+  height: 91vh;
   
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
+}
+.fulldiv{
+  overflow-x: hidden;
   
-  .profile-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-    margin-bottom: 20px;
+}
+.card{
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+  border-radius: 8px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.business-card-image {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-left: 38%;
+}
+
+.second-card {
+
+  background: linear-gradient(to right bottom, #ffb6c1, #eaffff 50%);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 60%;
+  margin-left: 22%;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
   }
+
+  &::before {
+    top: 0;
+    left: 0;
+    border-top: 72px solid #FF6600;
+    border-right: 72px solid transparent;
+  }
+
+  &::after {
+    top: 0;
+    right: 0;
+    border-top: 72px solid #FF6600;
+    border-left: 72px solid transparent;
+  }
+}
 
 
 
-  @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
+.custom-font {
+  font-family: "Quicksand", sans-serif;
+  font-family: "Unbounded", cursive;
+  font-size: 16px;
+  font-weight: bold;
+  color: #464040;
+  
+  
+}
 
-  @keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
-  }
+.button {
+  // display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 14px 24px;
+  border: none;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s,
+    transform 0.1s ease 0s;
+  background: #FF6600;
+  // margin-left: 35px;
 
-  @keyframes slideOut {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(100%); }
-  }
 
-  @keyframes slideIn {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(0); }
-  }
+}
 
-  .fadeInOut {
-    animation: fadeIn 0.3s ease-in-out, fadeOut 0.3s ease-in-out;
-  }
-  .slideInOut {
-    animation: slideIn 0.3s ease-in-out, slideOut 0.3s ease-in-out;
-  }
+
+.h1-title {
+ 
+
+  font-family: "Beth Ellen", cursive;
+  color:#FF6600
+  
+  
+}
+
+.icons{
+  color: #FF6600;
+}
+
+
+.card-footer{
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #f3f1f0;
+  border-radius: 10px;
+  margin-bottom: -10px;
+}

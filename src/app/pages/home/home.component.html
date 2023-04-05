@@ -1,7 +1,14 @@
-<section class="p-5">
-
-    <div class="example-container card shadow">
-        <mat-form-field class="w-100">
+<section class="p-5" >
+    <div class="d-flex inline justify-content-end g-3 mb-3">
+        <div >
+            <button mat-raised-button color="warn" (click)="ExportTOExcel()">Export to Xcell</button>
+        </div>
+        <div class="ms-3">
+            <button mat-raised-button color="warn" (click)="downloadAsPDF()">Export to Pdf</button>
+        </div>
+    </div>
+    <div class="example-container card shadow" id="mycard">
+        <mat-form-field class="w-100 search-bg">
             <mat-label>Search By title</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="..." #input>
         </mat-form-field>
@@ -80,3 +87,4 @@
     </div>
 
 </section>
+

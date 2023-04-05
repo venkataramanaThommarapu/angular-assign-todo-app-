@@ -1,89 +1,80 @@
-<!-- <h1 class="">Form</h1>
-<div fxLayout="row" fxLayoutAlign="center center" class="example-container">
-   
-    <form class="example-form">
-        <p> Enter Email</p>
-        <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                placeholder="Ex. pat@example.com">
+<div class="container-fluid g-0 fulldiv">
+  <div class="row justify-content-center">
+    <div class="col-md-3 ">
+      <!-- <div class="card card1"> -->
+        <div class="formdiv ">
 
-            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                Please enter a valid email address
-            </mat-error>
-            <mat-error *ngIf="emailFormControl.hasError('required')">
-                Email is <strong>required</strong>
-            </mat-error>
-        </mat-form-field>
-        <div class="pass">
-            <p> Enter Password</p>
-            <mat-form-field class="example-full-width">
-                <mat-label>password</mat-label>
-                <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                    placeholder="enter password">
-
-                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                    Please enter password
-                </mat-error>
-                <mat-error *ngIf="emailFormControl.hasError('required')">
-                    password is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-        </div>
-
-    </form>
-
-</div>
-
-
- -->
- <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-            <div class="card-body">
-              <!-- <img src="https://example.com/profile-image.jpg" class="profile-image">
-              <h5 class="card-title">{{ name }}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{ email }}</h6>
-              <p class="card-text">{{ phone }}</p>
-              <p class="card-text">{{ address }}</p> -->
-              <form>
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name">
-                </div>
-                <div class="form-group">
-                  <label for="email">Email address</label>
-                  <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email">
-                </div>
-                <div class="form-group">
-                  <label for="phone">Phone number</label>
-                  <input type="tel" class="form-control" id="phone" [(ngModel)]="phone" name="phone">
-                </div>
-                <div class="form-group">
-                  <label for="address">Address</label>
-                  <textarea class="form-control" id="address" rows="3" [(ngModel)]="address" name="address"></textarea>
-                </div>
-              </form>
-              <hr>
-              <h5>Data entered:</h5>
-              <ul>
-                <li><strong>Name:</strong> {{ name }}</li>
-                <li><strong>Email:</strong> {{ email }}</li>
-                <li><strong>Phone:</strong> {{ phone }}</li>
-                <li><strong>Address:</strong> {{ address }}</li>
-              </ul>
+          <form>
+            <div class="form-group mb-2">
+              <label for="title">Company</label>
+              <input type="text" class="form-control" id="title" [(ngModel)]="title" name="title">
             </div>
-          </div>
+            <div class="form-group mb-2">
+              <label for="tagline">Tagline</label>
+              <input type="text" class="form-control" id="tagline" [(ngModel)]="tagline" name="tagline">
+            </div>
+            <div class="form-group mb-2">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name">
+            </div>
+            <div class="form-group mb-2">
+              <label for="role">Disignation</label>
+              <input type="text" class="form-control" id="role" [(ngModel)]="role" name="role">
+            </div>
+            <div class="form-group mb-2">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email">
+            </div>
+            <div class="form-group mb-2">
+              <label for="phone">Phone number</label>
+              <input type="tel" class="form-control" id="phone" [(ngModel)]="phone" name="phone">
+            </div>
+            <div class="form-group mb-2">
+              <label for="address">Address</label>
+              <textarea class="form-control" id="address" rows="3" [(ngModel)]="address" name="address"></textarea>
+            </div>
+
+            <input type="file" (change)="onFileSelected($event)" name="filename2" class="mt-4">
+
           
+
+          </form>
         </div>
-    </div>
-  </div>
-  <ng-template #cardAnimation>
-    <div [@fadeInOut]>
-      <ng-content></ng-content>
-    </div>
-  </ng-template>
-  
+      <!-- </div> -->
 
+    </div>
 
+    <div class="col-md-9  ">
+
+      <div class="card second-card " id="mycard" #mycard>
+        <h1 class="text-center h1-title fw-bold fs-4 mb-0">{{title}}  </h1>
+        <span class="text-center" style="color: #FF6600;">{{tagline}}</span>
+        <!-- <h4 class="text-center h1-title mt-0">{{tagline}}</h4> -->
+        <div class="card-body">
+         
+            
+              <img [src]="previewImage" *ngIf="previewImage" alt="Your Logo" class="rounded-circle business-card-image " >
+            
+            <div class="text-center">
+              <h2 class="card-title custom-font mb-0">{{ name }}</h2>
+              <span class="mt-0">{{ role }}</span>
+              <div class="pt-3">
+              <p class="card-text custom-font "><i class="bi bi-envelope-at icons mx-1"></i>{{ email }}</p>
+              <p class="card-text  custom-font"><i class="bi bi-telephone icons mx-1"></i>{{ phone }}</p>
+              <p class="card-text  custom-font"><i class="bi bi-person-vcard-fill icons mx-1"></i>{{ address }}</p>
+            </div>
+            </div>
+            
+          </div>
+          <div class="card-footer w-100 text-center " style="background-color:#FF6600;">
+          motivitylabs.com
+          </div>
+
+        </div>
+        <div class="d-flex justify-content-center">
+          <button class="button text-white" (click)="downloadAsPDF()">download Card</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>    
